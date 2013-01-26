@@ -13,6 +13,8 @@
 		BECD0D5C16B1F015006CFFFB /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BECD0D5A16B1F015006CFFFB /* Credits.rtf */; };
 		BECD0D5F16B1F015006CFFFB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BECD0D5E16B1F015006CFFFB /* AppDelegate.m */; };
 		BECD0D6216B1F015006CFFFB /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BECD0D6016B1F015006CFFFB /* MainMenu.xib */; };
+		BECD0D6A16B1FE48006CFFFB /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BECD0D6916B1FE48006CFFFB /* ImageIO.framework */; };
+		BECD0D6C16B1FE52006CFFFB /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BECD0D6B16B1FE52006CFFFB /* CoreServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		BECD0D5D16B1F015006CFFFB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BECD0D5E16B1F015006CFFFB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BECD0D6116B1F015006CFFFB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		BECD0D6916B1FE48006CFFFB /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		BECD0D6B16B1FE52006CFFFB /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +40,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BECD0D6C16B1FE52006CFFFB /* CoreServices.framework in Frameworks */,
+				BECD0D6A16B1FE48006CFFFB /* ImageIO.framework in Frameworks */,
 				BECD0D4C16B1F015006CFFFB /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -46,6 +52,8 @@
 		BECD0D3C16B1F015006CFFFB = {
 			isa = PBXGroup;
 			children = (
+				BECD0D6B16B1FE52006CFFFB /* CoreServices.framework */,
+				BECD0D6916B1FE48006CFFFB /* ImageIO.framework */,
 				BECD0D5116B1F015006CFFFB /* nTrack */,
 				BECD0D4A16B1F015006CFFFB /* Frameworks */,
 				BECD0D4816B1F015006CFFFB /* Products */,
