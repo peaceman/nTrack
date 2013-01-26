@@ -30,7 +30,8 @@
 
 - (void)startScreenshotTimer
 {
-    self.screenshotTimer = CreateDispatchTimer(5ull * NSEC_PER_SEC, 5ull * NSEC_PER_MSEC, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{ [self takeScreenshot]; });
+    long interval = [[NSUserDefaults standardUserDefaults] integerForKey:@"screenshot_interval"];
+    self.screenshotTimer = CreateDispatchTimer(interval * NSEC_PER_SEC, 5ull * NSEC_PER_MSEC, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{ [self takeScreenshot]; });
 }
 
 - (void)stopScreenshotTimer
@@ -41,6 +42,11 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Insert code here to initialize your application
+    NSMutableDictionary *appDefaults = [[NSMutableDictionary alloc] init];
+    [appDefaults setObject:[NSNumber numberWithInt:10] forKey:@"screenshot_interval"];
+    [appDefaults setObject:[NSString stringWithFormat:@"%@/%@", NSHomeDirectory(), @"nTrack"] forKey:@"save_path"];
+
+    [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
     
     [self activateStatusMenu];
 }
@@ -63,10 +69,26 @@
     CGImageRelease(screenshot);
 }
 
+- (void)ensureExistingPath:(NSString*)path
+{
+    NSError *error = nil;
+    [[NSFileManager defaultManager] createDirectoryAtPath:path
+                              withIntermediateDirectories:YES
+                                               attributes:nil
+                                                    error:&error];
+
+    if (error != nil) {
+        NSLog(@"error creating directory: %@", error);
+    }
+}
+
 - (NSString*)generateScreenshotTargetFilename
 {
     NSDate *now = [NSDate date];
-    return [NSString stringWithFormat:@"%@/%@.png", @"/Users/peaceman/Desktop", [self.dateFormatter stringFromDate:now]];
+    NSString *savePath = [[NSUserDefaults standardUserDefaults] stringForKey:@"save_path"];
+
+    [self ensureExistingPath:savePath];
+    return [NSString stringWithFormat:@"%@/%@.png", savePath, [self.dateFormatter stringFromDate:now]];
 }
 
 - (IBAction)omfgWasPressed:(NSMenuItem*)sender
