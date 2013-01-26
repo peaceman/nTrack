@@ -10,7 +10,7 @@
 
 @interface AppDelegate()
 @property (nonatomic) NSDateFormatter *dateFormatter;
-@property (nonatomic) NSTimer* screenshotTimer;
+@property (nonatomic) dispatch_source_t screenshotTimer;
 @end
 
 @implementation AppDelegate
@@ -30,25 +30,18 @@
 
 - (void)startScreenshotTimer
 {
-    if (self.screenshotTimer == nil) {
-        self.screenshotTimer = [NSTimer timerWithTimeInterval:10.0 target:self selector:@selector(takeScreenshot) userInfo:nil repeats:YES];
-    }
-
-    NSRunLoop* runner = [NSRunLoop currentRunLoop];
-    [runner addTimer:self.screenshotTimer forMode:NSDefaultRunLoopMode];
+    self.screenshotTimer = CreateDispatchTimer(5ull * NSEC_PER_SEC, 5ull * NSEC_PER_MSEC, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{ [self takeScreenshot]; });
 }
 
 - (void)stopScreenshotTimer
 {
-    if (self.screenshotTimer || [self.screenshotTimer isValid]) {
-        [self.screenshotTimer invalidate];
-        self.screenshotTimer = nil;
-    }
+    dispatch_source_cancel(self.screenshotTimer);
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Insert code here to initialize your application
+    
     [self activateStatusMenu];
 }
 
@@ -98,5 +91,20 @@ void CGImageWriteToFile(CGImageRef image, NSString *path) {
 
     CFRelease(destination);
 }
+
+dispatch_source_t CreateDispatchTimer(uint64_t interval, uint64_t leeway, dispatch_queue_t queue, dispatch_block_t block)
+{
+    dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
+
+    if (timer) {
+        dispatch_source_set_timer(timer, dispatch_walltime(NULL, 0), interval, leeway);
+        dispatch_source_set_event_handler(timer, block);
+        dispatch_resume(timer);
+    }
+
+    return timer;
+}
+
+
 
 @end
