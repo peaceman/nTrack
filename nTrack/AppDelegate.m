@@ -8,11 +8,10 @@
 
 #import "AppDelegate.h"
 
-@interface AppDelegate() <NSWindowDelegate>
+@interface AppDelegate()
 @property (nonatomic) NSDateFormatter *dateFormatter;
 @property (nonatomic) dispatch_source_t screenshotTimer;
 @property (weak) IBOutlet NSPopUpButtonCell *folderDropDown;
-@property (unsafe_unretained) IBOutlet NSWindow *preferencesWindow;
 @end
 
 @implementation AppDelegate
@@ -36,10 +35,6 @@
 
         NSLog(@"user selected folder: %@", selectedFolder.path);
     }
-}
-
-- (void)windowWillClose:(NSNotification *)notification
-{
 }
 
 - (NSDateFormatter*)dateFormatter
@@ -71,7 +66,6 @@
     [appDefaults setObject:[NSString stringWithFormat:@"%@/%@", NSHomeDirectory(), @"nTrack"] forKey:@"save_path"];
 
     [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
-    self.preferencesWindow.delegate = self;
 
     self.folderDropDown.selectedItem.title = [[NSURL fileURLWithPath:[[NSUserDefaults standardUserDefaults] stringForKey:@"save_path"]] lastPathComponent];
     
