@@ -8,15 +8,39 @@
 
 #import "AppDelegate.h"
 
-@interface AppDelegate()
+@interface AppDelegate() <NSWindowDelegate>
 @property (nonatomic) NSDateFormatter *dateFormatter;
 @property (nonatomic) dispatch_source_t screenshotTimer;
+@property (weak) IBOutlet NSPopUpButtonCell *folderDropDown;
+@property (unsafe_unretained) IBOutlet NSWindow *preferencesWindow;
 @end
 
 @implementation AppDelegate
 @synthesize theItem;
 @synthesize theMenu;
 @synthesize dateFormatter = _dateFormatter;
+
+- (IBAction)openSavePathFileDialog:(NSMenuItem *)sender
+{
+    [self.folderDropDown selectItemAtIndex:0];
+    NSOpenPanel* openDialog = [NSOpenPanel openPanel];
+    openDialog.canChooseDirectories = YES;
+    openDialog.canChooseFiles = NO;
+    openDialog.allowsMultipleSelection = NO;
+
+    if ([openDialog runModal] == NSOKButton) {
+        NSURL *selectedFolder = openDialog.URL;
+        self.folderDropDown.selectedItem.title = selectedFolder.lastPathComponent;
+
+        [[NSUserDefaults standardUserDefaults] setObject:selectedFolder.path forKey:@"save_path"];
+
+        NSLog(@"user selected folder: %@", selectedFolder.path);
+    }
+}
+
+- (void)windowWillClose:(NSNotification *)notification
+{
+}
 
 - (NSDateFormatter*)dateFormatter
 {
@@ -43,12 +67,20 @@
 {
     // Insert code here to initialize your application
     NSMutableDictionary *appDefaults = [[NSMutableDictionary alloc] init];
-    [appDefaults setObject:[NSNumber numberWithInt:10] forKey:@"screenshot_interval"];
+    [appDefaults setObject:[NSNumber numberWithInt:23] forKey:@"screenshot_interval"];
     [appDefaults setObject:[NSString stringWithFormat:@"%@/%@", NSHomeDirectory(), @"nTrack"] forKey:@"save_path"];
 
     [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
+    self.preferencesWindow.delegate = self;
+
+    self.folderDropDown.selectedItem.title = [[NSURL fileURLWithPath:[[NSUserDefaults standardUserDefaults] stringForKey:@"save_path"]] lastPathComponent];
     
     [self activateStatusMenu];
+}
+
+- (void)applicationWillTerminate:(NSNotification *)aNotification
+{
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)activateStatusMenu

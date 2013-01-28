@@ -305,6 +305,7 @@
 				BECD0D6716B1F015006CFFFB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
