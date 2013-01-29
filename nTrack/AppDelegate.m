@@ -46,15 +46,18 @@
 
     return _dateFormatter;
 }
-- (IBAction)printRunningApplications:(NSMenuItem *)sender
-{
-    NSWorkspace *sharedWorkspace = [NSWorkspace sharedWorkspace];
-    NSLog(@"running applications: %@", [sharedWorkspace runningApplications]);
-}
 
 - (void)startActiveApplicationTracking
 {
-    [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self selector:@selector(activeAppDidChange:) name:NSWorkspaceDidActivateApplicationNotification object:nil];
+    [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self
+                                                           selector:@selector(activeAppDidChange:)
+                                                               name:NSWorkspaceDidActivateApplicationNotification
+                                                             object:nil];
+}
+
+- (void)stopActiveApplicationTracking
+{
+    [[[NSWorkspace sharedWorkspace] notificationCenter] removeObserver:self];
 }
 
 - (void)activeAppDidChange:(NSNotification*)notification
@@ -86,7 +89,6 @@
     self.folderDropDown.selectedItem.title = [[NSURL fileURLWithPath:[[NSUserDefaults standardUserDefaults] stringForKey:@"save_path"]] lastPathComponent];
     
     [self activateStatusMenu];
-    [self startActiveApplicationTracking];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification
@@ -141,6 +143,17 @@
         sender.state = NSOffState;
     } else {
         [self startScreenshotTimer];
+        sender.state = NSOnState;
+    }
+}
+
+- (IBAction)trackActiveApplicationWasPressed:(NSMenuItem *)sender
+{
+    if (sender.state == NSOnState) {
+        [self stopActiveApplicationTracking];
+        sender.state = NSOffState;
+    } else {
+        [self startActiveApplicationTracking];
         sender.state = NSOnState;
     }
 }

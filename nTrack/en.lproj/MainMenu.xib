@@ -64,19 +64,19 @@
 							<string key="NSResourceName">NSMenuMixedState</string>
 						</object>
 					</object>
-					<object class="NSMenuItem" id="473279565">
+					<object class="NSMenuItem" id="430566628">
 						<reference key="NSMenu" ref="298671428"/>
-						<bool key="NSIsDisabled">YES</bool>
-						<bool key="NSIsSeparator">YES</bool>
-						<string key="NSTitle"/>
+						<string key="NSTitle">Track active application</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
 						<reference key="NSOnImage" ref="108593562"/>
 						<reference key="NSMixedImage" ref="752055716"/>
 					</object>
-					<object class="NSMenuItem" id="188144342">
+					<object class="NSMenuItem" id="473279565">
 						<reference key="NSMenu" ref="298671428"/>
-						<string key="NSTitle">Print running applications</string>
+						<bool key="NSIsDisabled">YES</bool>
+						<bool key="NSIsSeparator">YES</bool>
+						<string key="NSTitle"/>
 						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
 						<reference key="NSOnImage" ref="108593562"/>
@@ -420,11 +420,11 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">printRunningApplications:</string>
+						<string key="label">trackActiveApplicationWasPressed:</string>
 						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="188144342"/>
+						<reference key="destination" ref="430566628"/>
 					</object>
-					<int key="connectionID">758</int>
+					<int key="connectionID">760</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -499,7 +499,7 @@
 							<reference ref="473279565"/>
 							<reference ref="345891781"/>
 							<reference ref="312244387"/>
-							<reference ref="188144342"/>
+							<reference ref="430566628"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -902,8 +902,8 @@
 						<reference key="parent" ref="470518033"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">757</int>
-						<reference key="object" ref="188144342"/>
+						<int key="objectID">759</int>
+						<reference key="object" ref="430566628"/>
 						<reference key="parent" ref="298671428"/>
 					</object>
 				</array>
@@ -974,13 +974,13 @@
 				<string key="750.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="752.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="753.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="757.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="759.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">758</int>
+			<int key="maxID">760</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -990,7 +990,7 @@
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="omfgWasPressed:">NSMenuItem</string>
 						<string key="openSavePathFileDialog:">NSMenuItem</string>
-						<string key="printRunningApplications:">NSMenuItem</string>
+						<string key="trackActiveApplicationWasPressed:">NSMenuItem</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="omfgWasPressed:">
@@ -1001,8 +1001,8 @@
 							<string key="name">openSavePathFileDialog:</string>
 							<string key="candidateClassName">NSMenuItem</string>
 						</object>
-						<object class="IBActionInfo" key="printRunningApplications:">
-							<string key="name">printRunningApplications:</string>
+						<object class="IBActionInfo" key="trackActiveApplicationWasPressed:">
+							<string key="name">trackActiveApplicationWasPressed:</string>
 							<string key="candidateClassName">NSMenuItem</string>
 						</object>
 					</dictionary>
