@@ -12,6 +12,7 @@
 @property (nonatomic) NSDateFormatter *dateFormatter;
 @property (nonatomic) dispatch_source_t screenshotTimer;
 @property (weak) IBOutlet NSPopUpButtonCell *folderDropDown;
+@property (nonatomic) dispatch_source_t applicationTrackingTimer;
 @end
 
 @implementation AppDelegate
@@ -46,6 +47,29 @@
 
     return _dateFormatter;
 }
+- (IBAction)printRunningApplications:(NSMenuItem *)sender
+{
+    NSWorkspace *sharedWorkspace = [NSWorkspace sharedWorkspace];
+    NSLog(@"running applications: %@", [sharedWorkspace runningApplications]);
+}
+
+- (void)printActiveApplication
+{
+    NSWorkspace *sharedWorkspace = [NSWorkspace sharedWorkspace];
+
+    NSArray *runningApplications = [sharedWorkspace runningApplications];
+
+    for (NSRunningApplication* app in runningApplications) {
+        if (app.isActive) {
+            NSLog(@"active application: %@", app);
+        }
+    }
+}
+
+- (void)startActiveApplicationTracking
+{
+    self.applicationTrackingTimer = CreateDispatchTimer(100 * NSEC_PER_MSEC, 5 * NSEC_PER_MSEC, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{ [self printActiveApplication]; });
+}
 
 - (void)startScreenshotTimer
 {
@@ -70,6 +94,7 @@
     self.folderDropDown.selectedItem.title = [[NSURL fileURLWithPath:[[NSUserDefaults standardUserDefaults] stringForKey:@"save_path"]] lastPathComponent];
     
     [self activateStatusMenu];
+    [self startActiveApplicationTracking];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification

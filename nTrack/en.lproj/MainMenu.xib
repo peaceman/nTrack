@@ -74,6 +74,14 @@
 						<reference key="NSOnImage" ref="108593562"/>
 						<reference key="NSMixedImage" ref="752055716"/>
 					</object>
+					<object class="NSMenuItem" id="188144342">
+						<reference key="NSMenu" ref="298671428"/>
+						<string key="NSTitle">Print running applications</string>
+						<string key="NSKeyEquiv"/>
+						<int key="NSMnemonicLoc">2147483647</int>
+						<reference key="NSOnImage" ref="108593562"/>
+						<reference key="NSMixedImage" ref="752055716"/>
+					</object>
 					<object class="NSMenuItem" id="312244387">
 						<reference key="NSMenu" ref="298671428"/>
 						<string key="NSTitle">Open nTrack Preferences...</string>
@@ -267,21 +275,22 @@
 								<string key="NSKeyEquivalent"/>
 								<int key="NSPeriodicDelay">400</int>
 								<int key="NSPeriodicInterval">75</int>
-								<nil key="NSMenuItem"/>
+								<object class="NSMenuItem" key="NSMenuItem" id="811853621">
+									<reference key="NSMenu" ref="573491804"/>
+									<string key="NSTitle"/>
+									<string key="NSKeyEquiv"/>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<int key="NSState">1</int>
+									<reference key="NSOnImage" ref="108593562"/>
+									<reference key="NSMixedImage" ref="752055716"/>
+									<string key="NSAction">_popUpItemAction:</string>
+									<reference key="NSTarget" ref="172227283"/>
+								</object>
 								<bool key="NSMenuItemRespectAlignment">YES</bool>
 								<object class="NSMenu" key="NSMenu" id="573491804">
 									<string key="NSTitle">OtherViews</string>
 									<array class="NSMutableArray" key="NSMenuItems">
-										<object class="NSMenuItem" id="811853621">
-											<reference key="NSMenu" ref="573491804"/>
-											<string key="NSTitle"/>
-											<string key="NSKeyEquiv"/>
-											<int key="NSMnemonicLoc">2147483647</int>
-											<reference key="NSOnImage" ref="108593562"/>
-											<reference key="NSMixedImage" ref="752055716"/>
-											<string key="NSAction">_popUpItemAction:</string>
-											<reference key="NSTarget" ref="172227283"/>
-										</object>
+										<reference ref="811853621"/>
 										<object class="NSMenuItem" id="122822779">
 											<reference key="NSMenu" ref="573491804"/>
 											<bool key="NSIsDisabled">YES</bool>
@@ -411,6 +420,14 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
+						<string key="label">printRunningApplications:</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="188144342"/>
+					</object>
+					<int key="connectionID">758</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
 						<string key="label">makeKeyAndOrderFront:</string>
 						<reference key="source" ref="527347354"/>
 						<reference key="destination" ref="312244387"/>
@@ -482,6 +499,7 @@
 							<reference ref="473279565"/>
 							<reference ref="345891781"/>
 							<reference ref="312244387"/>
+							<reference ref="188144342"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -883,6 +901,11 @@
 						<reference key="object" ref="143392415"/>
 						<reference key="parent" ref="470518033"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">757</int>
+						<reference key="object" ref="188144342"/>
+						<reference key="parent" ref="298671428"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -951,12 +974,13 @@
 				<string key="750.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="752.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="753.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="757.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">756</int>
+			<int key="maxID">758</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -966,6 +990,7 @@
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="omfgWasPressed:">NSMenuItem</string>
 						<string key="openSavePathFileDialog:">NSMenuItem</string>
+						<string key="printRunningApplications:">NSMenuItem</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="omfgWasPressed:">
@@ -976,10 +1001,13 @@
 							<string key="name">openSavePathFileDialog:</string>
 							<string key="candidateClassName">NSMenuItem</string>
 						</object>
+						<object class="IBActionInfo" key="printRunningApplications:">
+							<string key="name">printRunningApplications:</string>
+							<string key="candidateClassName">NSMenuItem</string>
+						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="folderDropDown">NSPopUpButtonCell</string>
-						<string key="preferencesWindow">NSWindow</string>
 						<string key="theMenu">NSMenu</string>
 						<string key="window">NSWindow</string>
 					</dictionary>
@@ -987,10 +1015,6 @@
 						<object class="IBToOneOutletInfo" key="folderDropDown">
 							<string key="name">folderDropDown</string>
 							<string key="candidateClassName">NSPopUpButtonCell</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="preferencesWindow">
-							<string key="name">preferencesWindow</string>
-							<string key="candidateClassName">NSWindow</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="theMenu">
 							<string key="name">theMenu</string>
