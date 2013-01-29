@@ -12,7 +12,6 @@
 @property (nonatomic) NSDateFormatter *dateFormatter;
 @property (nonatomic) dispatch_source_t screenshotTimer;
 @property (weak) IBOutlet NSPopUpButtonCell *folderDropDown;
-@property (nonatomic) dispatch_source_t applicationTrackingTimer;
 @end
 
 @implementation AppDelegate
@@ -53,22 +52,15 @@
     NSLog(@"running applications: %@", [sharedWorkspace runningApplications]);
 }
 
-- (void)printActiveApplication
-{
-    NSWorkspace *sharedWorkspace = [NSWorkspace sharedWorkspace];
-
-    NSArray *runningApplications = [sharedWorkspace runningApplications];
-
-    for (NSRunningApplication* app in runningApplications) {
-        if (app.isActive) {
-            NSLog(@"active application: %@", app);
-        }
-    }
-}
-
 - (void)startActiveApplicationTracking
 {
-    self.applicationTrackingTimer = CreateDispatchTimer(100 * NSEC_PER_MSEC, 5 * NSEC_PER_MSEC, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{ [self printActiveApplication]; });
+    [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self selector:@selector(activeAppDidChange:) name:NSWorkspaceDidActivateApplicationNotification object:nil];
+}
+
+- (void)activeAppDidChange:(NSNotification*)notification
+{
+    NSRunningApplication *activeApp = [[notification userInfo] objectForKey:NSWorkspaceApplicationKey];
+    NSLog(@"active application: %@", activeApp);
 }
 
 - (void)startScreenshotTimer
