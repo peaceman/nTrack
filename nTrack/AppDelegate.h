@@ -7,11 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "MenuController.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
-@property NSStatusItem *theItem;
-@property (weak) IBOutlet NSMenu *theMenu;
+@property (weak) IBOutlet MenuController *menuController;
 
 @end

@@ -3,12 +3,12 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1080</int>
 		<string key="IBDocument.SystemVersion">12C3006</string>
-		<string key="IBDocument.InterfaceBuilderVersion">2844</string>
+		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
 		<string key="IBDocument.AppKitVersion">1187.34</string>
 		<string key="IBDocument.HIToolboxVersion">625.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">2844</string>
+			<string key="NS.object.0">3084</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBNSLayoutConstraint</string>
@@ -110,7 +110,7 @@
 				<nil key="NSViewClass"/>
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<object class="NSView" key="NSWindowView" id="470518033">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<array class="NSMutableArray" key="NSSubviews">
 						<object class="NSTextField" id="781933217">
@@ -118,7 +118,6 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{43, 50}, {103, 17}}</string>
 							<reference key="NSSuperview" ref="470518033"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="494827822"/>
 							<string key="NSReuseIdentifierKey">_NS:1535</string>
 							<bool key="NSEnabled">YES</bool>
@@ -159,7 +158,6 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{17, 23}, {129, 17}}</string>
 							<reference key="NSSuperview" ref="470518033"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="284032734"/>
 							<string key="NSReuseIdentifierKey">_NS:1535</string>
 							<bool key="NSEnabled">YES</bool>
@@ -180,7 +178,6 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{156, 20}, {100, 22}}</string>
 							<reference key="NSSuperview" ref="470518033"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="409927587"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
@@ -259,7 +256,6 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{153, 45}, {164, 26}}</string>
 							<reference key="NSSuperview" ref="470518033"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="907415220"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
@@ -330,8 +326,6 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{261, 23}, {56, 17}}</string>
 							<reference key="NSSuperview" ref="470518033"/>
-							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:1535</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="457225814">
@@ -348,13 +342,14 @@
 						</object>
 					</array>
 					<string key="NSFrameSize">{334, 86}</string>
-					<reference key="NSSuperview"/>
-					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="781933217"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
+			</object>
+			<object class="NSCustomObject" id="805317525">
+				<string key="NSClassName">MenuController</string>
 			</object>
 			<object class="NSUserDefaultsController" id="282077940">
 				<bool key="NSSharedInstance">YES</bool>
@@ -362,14 +357,6 @@
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<array class="NSMutableArray" key="connectionRecords">
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">terminate:</string>
-						<reference key="source" ref="1050"/>
-						<reference key="destination" ref="345891781"/>
-					</object>
-					<int key="connectionID">545</int>
-				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">delegate</string>
@@ -385,14 +372,6 @@
 						<reference key="destination" ref="298671428"/>
 					</object>
 					<int key="connectionID">540</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">omfgWasPressed:</string>
-						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="1053730675"/>
-					</object>
-					<int key="connectionID">541</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -419,20 +398,12 @@
 					<int key="connectionID">754</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">trackActiveApplicationWasPressed:</string>
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">menuController</string>
 						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="430566628"/>
+						<reference key="destination" ref="805317525"/>
 					</object>
-					<int key="connectionID">760</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">makeKeyAndOrderFront:</string>
-						<reference key="source" ref="527347354"/>
-						<reference key="destination" ref="312244387"/>
-					</object>
-					<int key="connectionID">572</int>
+					<int key="connectionID">772</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -453,6 +424,86 @@
 						</object>
 					</object>
 					<int key="connectionID">756</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">statusMenu</string>
+						<reference key="source" ref="805317525"/>
+						<reference key="destination" ref="298671428"/>
+					</object>
+					<int key="connectionID">762</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">takeScreenshotsItem</string>
+						<reference key="source" ref="805317525"/>
+						<reference key="destination" ref="1053730675"/>
+					</object>
+					<int key="connectionID">763</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">trackActiveApplicationItem</string>
+						<reference key="source" ref="805317525"/>
+						<reference key="destination" ref="430566628"/>
+					</object>
+					<int key="connectionID">764</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">openPreferencesItem</string>
+						<reference key="source" ref="805317525"/>
+						<reference key="destination" ref="312244387"/>
+					</object>
+					<int key="connectionID">765</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">quitItem</string>
+						<reference key="source" ref="805317525"/>
+						<reference key="destination" ref="345891781"/>
+					</object>
+					<int key="connectionID">766</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">takeScreenshots:</string>
+						<reference key="source" ref="805317525"/>
+						<reference key="destination" ref="1053730675"/>
+					</object>
+					<int key="connectionID">767</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">trackActiveApplication</string>
+						<reference key="source" ref="805317525"/>
+						<reference key="destination" ref="430566628"/>
+					</object>
+					<int key="connectionID">768</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">trackActiveApplication:</string>
+						<reference key="source" ref="805317525"/>
+						<reference key="destination" ref="430566628"/>
+					</object>
+					<int key="connectionID">769</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">openPreferences:</string>
+						<reference key="source" ref="805317525"/>
+						<reference key="destination" ref="312244387"/>
+					</object>
+					<int key="connectionID">770</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">quit:</string>
+						<reference key="source" ref="805317525"/>
+						<reference key="destination" ref="345891781"/>
+					</object>
+					<int key="connectionID">771</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -906,6 +957,11 @@
 						<reference key="object" ref="430566628"/>
 						<reference key="parent" ref="298671428"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">761</int>
+						<reference key="object" ref="805317525"/>
+						<reference key="parent" ref="0"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -975,71 +1031,15 @@
 				<string key="752.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="753.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="759.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="761.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">760</int>
+			<int key="maxID">772</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes">
-			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
-				<object class="IBPartialClassDescription">
-					<string key="className">AppDelegate</string>
-					<string key="superclassName">NSObject</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="omfgWasPressed:">NSMenuItem</string>
-						<string key="openSavePathFileDialog:">NSMenuItem</string>
-						<string key="trackActiveApplicationWasPressed:">NSMenuItem</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="omfgWasPressed:">
-							<string key="name">omfgWasPressed:</string>
-							<string key="candidateClassName">NSMenuItem</string>
-						</object>
-						<object class="IBActionInfo" key="openSavePathFileDialog:">
-							<string key="name">openSavePathFileDialog:</string>
-							<string key="candidateClassName">NSMenuItem</string>
-						</object>
-						<object class="IBActionInfo" key="trackActiveApplicationWasPressed:">
-							<string key="name">trackActiveApplicationWasPressed:</string>
-							<string key="candidateClassName">NSMenuItem</string>
-						</object>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="folderDropDown">NSPopUpButtonCell</string>
-						<string key="theMenu">NSMenu</string>
-						<string key="window">NSWindow</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="folderDropDown">
-							<string key="name">folderDropDown</string>
-							<string key="candidateClassName">NSPopUpButtonCell</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="theMenu">
-							<string key="name">theMenu</string>
-							<string key="candidateClassName">NSMenu</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="window">
-							<string key="name">window</string>
-							<string key="candidateClassName">NSWindow</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/AppDelegate.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSLayoutConstraint</string>
-					<string key="superclassName">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/NSLayoutConstraint.h</string>
-					</object>
-				</object>
-			</array>
-		</object>
+		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>

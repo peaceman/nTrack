@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE68FC5F16C054B5009DA052 /* ScreenshotService.m in Sources */ = {isa = PBXBuildFile; fileRef = BE68FC5E16C054B5009DA052 /* ScreenshotService.m */; };
+		BEAD75B016BF0B840018C173 /* MenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAD75AF16BF0B840018C173 /* MenuController.m */; };
 		BECD0D4C16B1F015006CFFFB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BECD0D4B16B1F015006CFFFB /* Cocoa.framework */; };
 		BECD0D5616B1F015006CFFFB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BECD0D5416B1F015006CFFFB /* InfoPlist.strings */; };
 		BECD0D5816B1F015006CFFFB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BECD0D5716B1F015006CFFFB /* main.m */; };
@@ -18,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BE68FC5D16C054B5009DA052 /* ScreenshotService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenshotService.h; sourceTree = "<group>"; };
+		BE68FC5E16C054B5009DA052 /* ScreenshotService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenshotService.m; sourceTree = "<group>"; };
+		BEAD75AE16BF0B840018C173 /* MenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuController.h; sourceTree = "<group>"; };
+		BEAD75AF16BF0B840018C173 /* MenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuController.m; sourceTree = "<group>"; };
 		BECD0D4716B1F015006CFFFB /* nTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BECD0D4B16B1F015006CFFFB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		BECD0D4E16B1F015006CFFFB /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -49,6 +55,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE68FC5C16C05464009DA052 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BE68FC5D16C054B5009DA052 /* ScreenshotService.h */,
+				BE68FC5E16C054B5009DA052 /* ScreenshotService.m */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
 		BECD0D3C16B1F015006CFFFB = {
 			isa = PBXGroup;
 			children = (
@@ -90,10 +105,13 @@
 		BECD0D5116B1F015006CFFFB /* nTrack */ = {
 			isa = PBXGroup;
 			children = (
+				BE68FC5C16C05464009DA052 /* Services */,
 				BECD0D5D16B1F015006CFFFB /* AppDelegate.h */,
 				BECD0D5E16B1F015006CFFFB /* AppDelegate.m */,
 				BECD0D6016B1F015006CFFFB /* MainMenu.xib */,
 				BECD0D5216B1F015006CFFFB /* Supporting Files */,
+				BEAD75AE16BF0B840018C173 /* MenuController.h */,
+				BEAD75AF16BF0B840018C173 /* MenuController.m */,
 			);
 			path = nTrack;
 			sourceTree = "<group>";
@@ -176,6 +194,8 @@
 			files = (
 				BECD0D5816B1F015006CFFFB /* main.m in Sources */,
 				BECD0D5F16B1F015006CFFFB /* AppDelegate.m in Sources */,
+				BEAD75B016BF0B840018C173 /* MenuController.m in Sources */,
+				BE68FC5F16C054B5009DA052 /* ScreenshotService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
