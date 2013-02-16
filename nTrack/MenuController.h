@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ScreenshotService.h"
+#import "ActiveApplicationTrackingService.h"
 
 @interface MenuController : NSObject
 @property (weak) IBOutlet NSMenu *statusMenu;

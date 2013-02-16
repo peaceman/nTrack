@@ -35,25 +35,6 @@
     }
 }
 
-- (void)startActiveApplicationTracking
-{
-    [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self
-                                                           selector:@selector(activeAppDidChange:)
-                                                               name:NSWorkspaceDidActivateApplicationNotification
-                                                             object:nil];
-}
-
-- (void)stopActiveApplicationTracking
-{
-    [[[NSWorkspace sharedWorkspace] notificationCenter] removeObserver:self];
-}
-
-- (void)activeAppDidChange:(NSNotification*)notification
-{
-    NSRunningApplication *activeApp = [[notification userInfo] objectForKey:NSWorkspaceApplicationKey];
-    NSLog(@"active application: %@", activeApp);
-}
-
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Insert code here to initialize your application
@@ -72,20 +53,5 @@
 {
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
-
-- (IBAction)trackActiveApplicationWasPressed:(NSMenuItem *)sender
-{
-    if (sender.state == NSOnState) {
-        [self stopActiveApplicationTracking];
-        sender.state = NSOffState;
-    } else {
-        [self startActiveApplicationTracking];
-        sender.state = NSOnState;
-    }
-}
-
-
-
-
 
 @end

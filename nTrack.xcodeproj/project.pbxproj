@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE0120BF16CC18AC00C7F464 /* ActiveApplicationTrackingService.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0120BE16CC18AC00C7F464 /* ActiveApplicationTrackingService.m */; };
+		BE0120C316CC26C600C7F464 /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0120C116CC26C600C7F464 /* PreferencesWindowController.m */; };
+		BE0120D116CC54FC00C7F464 /* GeneralPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0120CF16CC54FC00C7F464 /* GeneralPreferencesViewController.m */; };
+		BE0120D216CC54FC00C7F464 /* GeneralPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE0120D016CC54FC00C7F464 /* GeneralPreferencesViewController.xib */; };
 		BE68FC5F16C054B5009DA052 /* ScreenshotService.m in Sources */ = {isa = PBXBuildFile; fileRef = BE68FC5E16C054B5009DA052 /* ScreenshotService.m */; };
 		BEAD75B016BF0B840018C173 /* MenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAD75AF16BF0B840018C173 /* MenuController.m */; };
 		BECD0D4C16B1F015006CFFFB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BECD0D4B16B1F015006CFFFB /* Cocoa.framework */; };
@@ -20,6 +24,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BE0120BD16CC18AC00C7F464 /* ActiveApplicationTrackingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveApplicationTrackingService.h; sourceTree = "<group>"; };
+		BE0120BE16CC18AC00C7F464 /* ActiveApplicationTrackingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveApplicationTrackingService.m; sourceTree = "<group>"; };
+		BE0120C016CC26C600C7F464 /* PreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindowController.h; sourceTree = "<group>"; };
+		BE0120C116CC26C600C7F464 /* PreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesWindowController.m; sourceTree = "<group>"; };
+		BE0120C516CC525300C7F464 /* PreferencesModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreferencesModule.h; sourceTree = "<group>"; };
+		BE0120CE16CC54FC00C7F464 /* GeneralPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralPreferencesViewController.h; sourceTree = "<group>"; };
+		BE0120CF16CC54FC00C7F464 /* GeneralPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralPreferencesViewController.m; sourceTree = "<group>"; };
+		BE0120D016CC54FC00C7F464 /* GeneralPreferencesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GeneralPreferencesViewController.xib; sourceTree = "<group>"; };
 		BE68FC5D16C054B5009DA052 /* ScreenshotService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenshotService.h; sourceTree = "<group>"; };
 		BE68FC5E16C054B5009DA052 /* ScreenshotService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenshotService.m; sourceTree = "<group>"; };
 		BEAD75AE16BF0B840018C173 /* MenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuController.h; sourceTree = "<group>"; };
@@ -60,6 +72,8 @@
 			children = (
 				BE68FC5D16C054B5009DA052 /* ScreenshotService.h */,
 				BE68FC5E16C054B5009DA052 /* ScreenshotService.m */,
+				BE0120BD16CC18AC00C7F464 /* ActiveApplicationTrackingService.h */,
+				BE0120BE16CC18AC00C7F464 /* ActiveApplicationTrackingService.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -112,6 +126,12 @@
 				BECD0D5216B1F015006CFFFB /* Supporting Files */,
 				BEAD75AE16BF0B840018C173 /* MenuController.h */,
 				BEAD75AF16BF0B840018C173 /* MenuController.m */,
+				BE0120C016CC26C600C7F464 /* PreferencesWindowController.h */,
+				BE0120C116CC26C600C7F464 /* PreferencesWindowController.m */,
+				BE0120C516CC525300C7F464 /* PreferencesModule.h */,
+				BE0120CE16CC54FC00C7F464 /* GeneralPreferencesViewController.h */,
+				BE0120CF16CC54FC00C7F464 /* GeneralPreferencesViewController.m */,
+				BE0120D016CC54FC00C7F464 /* GeneralPreferencesViewController.xib */,
 			);
 			path = nTrack;
 			sourceTree = "<group>";
@@ -182,6 +202,7 @@
 				BECD0D5616B1F015006CFFFB /* InfoPlist.strings in Resources */,
 				BECD0D5C16B1F015006CFFFB /* Credits.rtf in Resources */,
 				BECD0D6216B1F015006CFFFB /* MainMenu.xib in Resources */,
+				BE0120D216CC54FC00C7F464 /* GeneralPreferencesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +217,9 @@
 				BECD0D5F16B1F015006CFFFB /* AppDelegate.m in Sources */,
 				BEAD75B016BF0B840018C173 /* MenuController.m in Sources */,
 				BE68FC5F16C054B5009DA052 /* ScreenshotService.m in Sources */,
+				BE0120BF16CC18AC00C7F464 /* ActiveApplicationTrackingService.m in Sources */,
+				BE0120C316CC26C600C7F464 /* PreferencesWindowController.m in Sources */,
+				BE0120D116CC54FC00C7F464 /* GeneralPreferencesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
