@@ -20,6 +20,7 @@
 		BE32D57E16D0B943005DD003 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = BE32D57316D0B943005DD003 /* AFURLConnectionOperation.m */; };
 		BE32D57F16D0B943005DD003 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = BE32D57516D0B943005DD003 /* AFXMLRequestOperation.m */; };
 		BE32D58016D0B943005DD003 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = BE32D57716D0B943005DD003 /* UIImageView+AFNetworking.m */; };
+		BE32D58316D0BA3E005DD003 /* AFnTimeRecAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BE32D58216D0BA3E005DD003 /* AFnTimeRecAPIClient.m */; };
 		BE68FC5F16C054B5009DA052 /* ScreenshotService.m in Sources */ = {isa = PBXBuildFile; fileRef = BE68FC5E16C054B5009DA052 /* ScreenshotService.m */; };
 		BEAD75B016BF0B840018C173 /* MenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAD75AF16BF0B840018C173 /* MenuController.m */; };
 		BECD0D4C16B1F015006CFFFB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BECD0D4B16B1F015006CFFFB /* Cocoa.framework */; };
@@ -60,6 +61,8 @@
 		BE32D57516D0B943005DD003 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		BE32D57616D0B943005DD003 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		BE32D57716D0B943005DD003 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		BE32D58116D0BA3E005DD003 /* AFnTimeRecAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFnTimeRecAPIClient.h; sourceTree = "<group>"; };
+		BE32D58216D0BA3E005DD003 /* AFnTimeRecAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFnTimeRecAPIClient.m; sourceTree = "<group>"; };
 		BE68FC5D16C054B5009DA052 /* ScreenshotService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenshotService.h; sourceTree = "<group>"; };
 		BE68FC5E16C054B5009DA052 /* ScreenshotService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenshotService.m; sourceTree = "<group>"; };
 		BEAD75AE16BF0B840018C173 /* MenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuController.h; sourceTree = "<group>"; };
@@ -187,6 +190,8 @@
 				BE0120CE16CC54FC00C7F464 /* GeneralPreferencesViewController.h */,
 				BE0120CF16CC54FC00C7F464 /* GeneralPreferencesViewController.m */,
 				BE0120D016CC54FC00C7F464 /* GeneralPreferencesViewController.xib */,
+				BE32D58116D0BA3E005DD003 /* AFnTimeRecAPIClient.h */,
+				BE32D58216D0BA3E005DD003 /* AFnTimeRecAPIClient.m */,
 			);
 			path = nTrack;
 			sourceTree = "<group>";
@@ -284,6 +289,7 @@
 				BE32D57E16D0B943005DD003 /* AFURLConnectionOperation.m in Sources */,
 				BE32D57F16D0B943005DD003 /* AFXMLRequestOperation.m in Sources */,
 				BE32D58016D0B943005DD003 /* UIImageView+AFNetworking.m in Sources */,
+				BE32D58316D0BA3E005DD003 /* AFnTimeRecAPIClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

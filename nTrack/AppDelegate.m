@@ -7,33 +7,9 @@
 //
 
 #import "AppDelegate.h"
-
-@interface AppDelegate()
-@property (nonatomic) NSDateFormatter *dateFormatter;
-@property (nonatomic) dispatch_source_t screenshotTimer;
-@property (weak) IBOutlet NSPopUpButtonCell *folderDropDown;
-@end
+#import "AFnTimeRecAPIClient.h"
 
 @implementation AppDelegate
-@synthesize dateFormatter = _dateFormatter;
-
-- (IBAction)openSavePathFileDialog:(NSMenuItem *)sender
-{
-    [self.folderDropDown selectItemAtIndex:0];
-    NSOpenPanel* openDialog = [NSOpenPanel openPanel];
-    openDialog.canChooseDirectories = YES;
-    openDialog.canChooseFiles = NO;
-    openDialog.allowsMultipleSelection = NO;
-
-    if ([openDialog runModal] == NSOKButton) {
-        NSURL *selectedFolder = openDialog.URL;
-        self.folderDropDown.selectedItem.title = selectedFolder.lastPathComponent;
-
-        [[NSUserDefaults standardUserDefaults] setObject:selectedFolder.path forKey:@"save_path"];
-
-        NSLog(@"user selected folder: %@", selectedFolder.path);
-    }
-}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -44,9 +20,8 @@
 
     [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
 
-    self.folderDropDown.selectedItem.title = [[NSURL fileURLWithPath:[[NSUserDefaults standardUserDefaults] stringForKey:@"save_path"]] lastPathComponent];
-
     [self.menuController setupMenu];
+    [AFnTimeRecAPIClient sharedClient];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification
