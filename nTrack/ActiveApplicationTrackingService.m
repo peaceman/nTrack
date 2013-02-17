@@ -7,6 +7,7 @@
 //
 
 #import "ActiveApplicationTrackingService.h"
+#import "AFnTimeRecAPIClient.h"
 
 @implementation ActiveApplicationTrackingService
 + (ActiveApplicationTrackingService*)sharedInstance
@@ -49,5 +50,10 @@
 - (void)logCurrentAppBundleIdentifier:(NSString*)bundleIdentifier
 {
     NSLog(@"current active application: %@", bundleIdentifier);
+    [[AFnTimeRecAPIClient sharedClient] postPath:@"active-application" parameters:[NSDictionary dictionaryWithObjectsAndKeys:@"change", @"type", bundleIdentifier, @"application_identifier", nil] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"sent active-application event to ntimerec");
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"api-call failed: %@", error);
+    }];
 }
 @end
