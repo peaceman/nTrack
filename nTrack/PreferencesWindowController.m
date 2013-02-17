@@ -8,6 +8,7 @@
 
 #import "PreferencesWindowController.h"
 #import "GeneralPreferencesViewController.h"
+#import "nTimeRecAPIPreferencesViewController.h"
 
 @interface PreferencesWindowController ()
 @property (nonatomic) NSArray* modules;
@@ -47,6 +48,7 @@
 {
     NSArray* modules = [NSArray arrayWithObjects:
                         [[GeneralPreferencesViewController alloc] init],
+                        [[nTimeRecAPIPreferencesViewController alloc] init],
                         nil];
 
     self.modules = modules;
@@ -141,6 +143,10 @@
 {
     [self.currentModule.view removeFromSuperview];
 
+    // Call the optional protocol method if the module implements it
+    if ([(NSObject *)module respondsToSelector:@selector(willBeDisplayed)])
+        [module willBeDisplayed];
+    
     // The view which will be displayed
     NSView *newView = [module view];
 
@@ -153,10 +159,6 @@
 
     [[self.window toolbar] setSelectedItemIdentifier:module.identifier];
     [self.window setTitle:module.title];
-
-    // Call the optional protocol method if the module implements it
-    if ([(NSObject *)module respondsToSelector:@selector(willBeDisplayed)])
-        [module willBeDisplayed];
 
     // Show the view
     _currentModule = module;

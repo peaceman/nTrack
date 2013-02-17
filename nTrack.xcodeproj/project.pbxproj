@@ -10,7 +10,6 @@
 		BE0120BF16CC18AC00C7F464 /* ActiveApplicationTrackingService.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0120BE16CC18AC00C7F464 /* ActiveApplicationTrackingService.m */; };
 		BE0120C316CC26C600C7F464 /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0120C116CC26C600C7F464 /* PreferencesWindowController.m */; };
 		BE0120D116CC54FC00C7F464 /* GeneralPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0120CF16CC54FC00C7F464 /* GeneralPreferencesViewController.m */; };
-		BE0120D216CC54FC00C7F464 /* GeneralPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE0120D016CC54FC00C7F464 /* GeneralPreferencesViewController.xib */; };
 		BE32D57816D0B943005DD003 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BE32D56616D0B943005DD003 /* AFHTTPClient.m */; };
 		BE32D57916D0B943005DD003 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = BE32D56816D0B943005DD003 /* AFHTTPRequestOperation.m */; };
 		BE32D57A16D0B943005DD003 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = BE32D56A16D0B943005DD003 /* AFImageRequestOperation.m */; };
@@ -21,6 +20,9 @@
 		BE32D57F16D0B943005DD003 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = BE32D57516D0B943005DD003 /* AFXMLRequestOperation.m */; };
 		BE32D58016D0B943005DD003 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = BE32D57716D0B943005DD003 /* UIImageView+AFNetworking.m */; };
 		BE32D58316D0BA3E005DD003 /* AFnTimeRecAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BE32D58216D0BA3E005DD003 /* AFnTimeRecAPIClient.m */; };
+		BE32D58716D0C1D2005DD003 /* nTimeRecAPIPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE32D58516D0C1D2005DD003 /* nTimeRecAPIPreferencesViewController.m */; };
+		BE32D58816D0C1D2005DD003 /* nTimeRecAPIPreferencesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE32D58616D0C1D2005DD003 /* nTimeRecAPIPreferencesView.xib */; };
+		BE32D58B16D0CAA2005DD003 /* GeneralPreferencesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE32D58A16D0CAA2005DD003 /* GeneralPreferencesView.xib */; };
 		BE68FC5F16C054B5009DA052 /* ScreenshotService.m in Sources */ = {isa = PBXBuildFile; fileRef = BE68FC5E16C054B5009DA052 /* ScreenshotService.m */; };
 		BEAD75B016BF0B840018C173 /* MenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAD75AF16BF0B840018C173 /* MenuController.m */; };
 		BECD0D4C16B1F015006CFFFB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BECD0D4B16B1F015006CFFFB /* Cocoa.framework */; };
@@ -41,7 +43,6 @@
 		BE0120C516CC525300C7F464 /* PreferencesModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreferencesModule.h; sourceTree = "<group>"; };
 		BE0120CE16CC54FC00C7F464 /* GeneralPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralPreferencesViewController.h; sourceTree = "<group>"; };
 		BE0120CF16CC54FC00C7F464 /* GeneralPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralPreferencesViewController.m; sourceTree = "<group>"; };
-		BE0120D016CC54FC00C7F464 /* GeneralPreferencesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GeneralPreferencesViewController.xib; sourceTree = "<group>"; };
 		BE32D56516D0B943005DD003 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		BE32D56616D0B943005DD003 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		BE32D56716D0B943005DD003 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -63,6 +64,10 @@
 		BE32D57716D0B943005DD003 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		BE32D58116D0BA3E005DD003 /* AFnTimeRecAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFnTimeRecAPIClient.h; sourceTree = "<group>"; };
 		BE32D58216D0BA3E005DD003 /* AFnTimeRecAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFnTimeRecAPIClient.m; sourceTree = "<group>"; };
+		BE32D58416D0C1D2005DD003 /* nTimeRecAPIPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nTimeRecAPIPreferencesViewController.h; sourceTree = "<group>"; };
+		BE32D58516D0C1D2005DD003 /* nTimeRecAPIPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nTimeRecAPIPreferencesViewController.m; sourceTree = "<group>"; };
+		BE32D58616D0C1D2005DD003 /* nTimeRecAPIPreferencesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = nTimeRecAPIPreferencesView.xib; sourceTree = "<group>"; };
+		BE32D58A16D0CAA2005DD003 /* GeneralPreferencesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GeneralPreferencesView.xib; sourceTree = "<group>"; };
 		BE68FC5D16C054B5009DA052 /* ScreenshotService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenshotService.h; sourceTree = "<group>"; };
 		BE68FC5E16C054B5009DA052 /* ScreenshotService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenshotService.m; sourceTree = "<group>"; };
 		BEAD75AE16BF0B840018C173 /* MenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuController.h; sourceTree = "<group>"; };
@@ -189,9 +194,12 @@
 				BE0120C516CC525300C7F464 /* PreferencesModule.h */,
 				BE0120CE16CC54FC00C7F464 /* GeneralPreferencesViewController.h */,
 				BE0120CF16CC54FC00C7F464 /* GeneralPreferencesViewController.m */,
-				BE0120D016CC54FC00C7F464 /* GeneralPreferencesViewController.xib */,
+				BE32D58A16D0CAA2005DD003 /* GeneralPreferencesView.xib */,
 				BE32D58116D0BA3E005DD003 /* AFnTimeRecAPIClient.h */,
 				BE32D58216D0BA3E005DD003 /* AFnTimeRecAPIClient.m */,
+				BE32D58416D0C1D2005DD003 /* nTimeRecAPIPreferencesViewController.h */,
+				BE32D58516D0C1D2005DD003 /* nTimeRecAPIPreferencesViewController.m */,
+				BE32D58616D0C1D2005DD003 /* nTimeRecAPIPreferencesView.xib */,
 			);
 			path = nTrack;
 			sourceTree = "<group>";
@@ -262,7 +270,8 @@
 				BECD0D5616B1F015006CFFFB /* InfoPlist.strings in Resources */,
 				BECD0D5C16B1F015006CFFFB /* Credits.rtf in Resources */,
 				BECD0D6216B1F015006CFFFB /* MainMenu.xib in Resources */,
-				BE0120D216CC54FC00C7F464 /* GeneralPreferencesViewController.xib in Resources */,
+				BE32D58816D0C1D2005DD003 /* nTimeRecAPIPreferencesView.xib in Resources */,
+				BE32D58B16D0CAA2005DD003 /* GeneralPreferencesView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +299,7 @@
 				BE32D57F16D0B943005DD003 /* AFXMLRequestOperation.m in Sources */,
 				BE32D58016D0B943005DD003 /* UIImageView+AFNetworking.m in Sources */,
 				BE32D58316D0BA3E005DD003 /* AFnTimeRecAPIClient.m in Sources */,
+				BE32D58716D0C1D2005DD003 /* nTimeRecAPIPreferencesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

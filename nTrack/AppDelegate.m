@@ -21,7 +21,6 @@
     [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
 
     [self.menuController setupMenu];
-    [AFnTimeRecAPIClient sharedClient];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification
