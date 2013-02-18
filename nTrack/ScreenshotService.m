@@ -75,7 +75,7 @@
     NSString *savePath = [[NSUserDefaults standardUserDefaults] stringForKey:@"save_path"];
 
     [self ensureExistingPath:savePath];
-    return [NSString stringWithFormat:@"%@/%@.png", savePath, [self.dateFormatter stringFromDate:now]];
+    return [NSString stringWithFormat:@"%@/%@.jpg", savePath, [self.dateFormatter stringFromDate:now]];
 }
 
 - (void)ensureExistingPath:(NSString*)path
@@ -107,9 +107,13 @@ dispatch_source_t CreateDispatchTimer(uint64_t interval, uint64_t leeway, dispat
 }
 
 void CGImageWriteToFile(CGImageRef image, NSString *path) {
+	CFMutableDictionaryRef mSaveMetaAndOpts = CFDictionaryCreateMutable(nil, 0, &kCFTypeDictionaryKeyCallBacks, &kCFTypeDictionaryValueCallBacks);
+	CFDictionarySetValue(mSaveMetaAndOpts, kCGImageDestinationLossyCompressionQuality,
+						 CFBridgingRetain([NSNumber numberWithFloat:0.0]));	// set the compression quality here
+
     CFURLRef url = (__bridge CFURLRef)[NSURL fileURLWithPath:path];
-    CGImageDestinationRef destination = CGImageDestinationCreateWithURL(url, kUTTypePNG, 1, NULL);
-    CGImageDestinationAddImage(destination, image, nil);
+    CGImageDestinationRef destination = CGImageDestinationCreateWithURL(url, kUTTypeJPEG, 1, NULL);
+    CGImageDestinationAddImage(destination, image, mSaveMetaAndOpts);
 
     if (!CGImageDestinationFinalize(destination)) {
         NSLog(@"Failed to write image to %@", path);
