@@ -78,6 +78,7 @@ static NSInteger const kAFnTimeRecAPIVersion = 1;
     [request setValue:[NSString stringWithFormat:@"%ld", (long)nowUnixInt] forHTTPHeaderField:@"timestamp"];
     [request setValue:[self buildHmacForRequest:request] forHTTPHeaderField:@"hash"];
 
+    self.lastOperation = operation;
     [super enqueueHTTPRequestOperation:operation];
 }
 

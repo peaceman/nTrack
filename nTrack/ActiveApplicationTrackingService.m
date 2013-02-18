@@ -7,7 +7,7 @@
 //
 
 #import "ActiveApplicationTrackingService.h"
-#import "AFnTimeRecAPIClient.h"
+#import "AFHTTPRequestOperation.h"
 
 @implementation ActiveApplicationTrackingService
 + (ActiveApplicationTrackingService*)sharedInstance
@@ -20,6 +20,25 @@
     });
 
     return _sharedObject;
+}
+
+- (id)init
+{
+    [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self selector:@selector(receiveSystemHaltNotification:) name:NSWorkspaceWillSleepNotification object:nil];
+    [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self selector:@selector(receiveSystemHaltNotification:) name:NSWorkspaceWillPowerOffNotification object:nil];
+
+    return self;
+}
+
+- (void)receiveSystemHaltNotification:(id)notification
+{
+    [[AFnTimeRecAPIClient sharedClient] postPath:@"active-application" parameters:[NSDictionary dictionaryWithObjectsAndKeys:@"stop", @"type", self.currentActiveApplicationBundleIdentifier, @"application_identifier", nil] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"sent stop active-application event to ntimerec");
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"api-call failed: %@", error);
+    }];
+
+    [[AFnTimeRecAPIClient sharedClient].lastOperation waitUntilFinished];
 }
 
 #pragma mark - Service Actions
@@ -45,6 +64,7 @@
 {
     NSRunningApplication* activeApp = [[notification userInfo] objectForKey:NSWorkspaceApplicationKey];
     [self logCurrentAppBundleIdentifier:activeApp.bundleIdentifier];
+    self.currentActiveApplicationBundleIdentifier = activeApp.bundleIdentifier;
 }
 
 - (void)logCurrentAppBundleIdentifier:(NSString*)bundleIdentifier

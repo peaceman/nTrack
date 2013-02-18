@@ -10,4 +10,5 @@
 
 @interface AFnTimeRecAPIClient : AFHTTPClient
 + (AFnTimeRecAPIClient*)sharedClient;
+@property (strong)AFHTTPRequestOperation* lastOperation;
 @end

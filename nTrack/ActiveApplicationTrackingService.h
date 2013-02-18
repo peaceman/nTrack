@@ -7,9 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AFnTimeRecAPIClient.h"
 
 @interface ActiveApplicationTrackingService : NSObject
 + (ActiveApplicationTrackingService*)sharedInstance;
 - (void)start;
 - (void)stop;
+- (void)receiveSystemHaltNotification:(id)notification;
+
+@property NSString* currentActiveApplicationBundleIdentifier;
 @end
