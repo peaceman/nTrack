@@ -19,6 +19,19 @@
     self = [super initWithNibName:@"GeneralPreferencesView" bundle:nibBundleOrNil];
     [self loadView];
     
+    NSArray *imageTypeKeys = [NSImage imageTypes];
+    imageTypeKeys = [imageTypeKeys filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+        return UTTypeConformsTo((__bridge CFStringRef)(evaluatedObject), kUTTypeImage);
+    }]];
+    
+    NSMutableDictionary *imageTypes = [[NSMutableDictionary alloc] init];
+    for (NSString *imageTypeKey in imageTypeKeys) {
+        NSString *imageTypeTitle = (__bridge NSString *)(UTTypeCopyDescription((__bridge CFStringRef)(imageTypeKey)));
+        [imageTypes setObject:imageTypeTitle forKey:imageTypeKey];
+    }
+    
+    self.imageTypes = imageTypes;
+    
     return self;
 }
 

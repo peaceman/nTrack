@@ -62,8 +62,9 @@
 
 - (void)takeScreenshot
 {
+    CFStringRef imageType = (__bridge CFStringRef)([[NSUserDefaults standardUserDefaults] stringForKey:@"image_type"]);
     CGImageRef screenshot = CGDisplayCreateImage(CGMainDisplayID());
-    CGImageWriteToFile(screenshot, kUTTypePNG, [self generateScreenshotTargetFileBasename]);
+    CGImageWriteToFile(screenshot, imageType, [self generateScreenshotTargetFileBasename]);
     CGImageRelease(screenshot);
 }
 
@@ -115,7 +116,7 @@ void CGImageWriteToFile(CGImageRef image, CFStringRef type, NSString *path) {
     NSString *fullPath = [path stringByAppendingPathExtension:filenameExtension];
 
     CFURLRef url = (__bridge CFURLRef)[NSURL fileURLWithPath:fullPath];
-    CGImageDestinationRef destination = CGImageDestinationCreateWithURL(url, kUTTypePNG, 1, NULL);
+    CGImageDestinationRef destination = CGImageDestinationCreateWithURL(url, type, 1, NULL);
     CGImageDestinationAddImage(destination, image, mSaveMetaAndOpts);
 
     if (!CGImageDestinationFinalize(destination)) {

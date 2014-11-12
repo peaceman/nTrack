@@ -12,4 +12,6 @@
 @interface GeneralPreferencesViewController : NSViewController <PreferencesModule>
 
 @property (weak) IBOutlet NSPopUpButtonCell *folderDropDown;
+@property (weak) IBOutlet NSPopUpButton *imageTypesDropDown;
+@property (strong) NSDictionary *imageTypes;
 @end

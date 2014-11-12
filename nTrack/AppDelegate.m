@@ -17,6 +17,7 @@
     NSMutableDictionary *appDefaults = [[NSMutableDictionary alloc] init];
     [appDefaults setObject:[NSNumber numberWithInt:30] forKey:@"screenshot_interval"];
     [appDefaults setObject:[NSString stringWithFormat:@"%@/%@", NSHomeDirectory(), @"nTrack"] forKey:@"save_path"];
+    [appDefaults setObject:kUTTypePNG forKey:@"image_type"];
 
     [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
 
