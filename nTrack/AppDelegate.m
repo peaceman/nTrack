@@ -15,7 +15,7 @@
 {
     // Insert code here to initialize your application
     NSMutableDictionary *appDefaults = [[NSMutableDictionary alloc] init];
-    [appDefaults setObject:[NSNumber numberWithInt:23] forKey:@"screenshot_interval"];
+    [appDefaults setObject:[NSNumber numberWithInt:30] forKey:@"screenshot_interval"];
     [appDefaults setObject:[NSString stringWithFormat:@"%@/%@", NSHomeDirectory(), @"nTrack"] forKey:@"save_path"];
 
     [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];

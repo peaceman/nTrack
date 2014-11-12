@@ -14,7 +14,7 @@
 
 - (void)takeScreenshot;
 
-- (NSString*)generateScreenshotTargetFilename;
+- (NSString*)generateScreenshotTargetFileBasename;
 - (void)ensureExistingPath:(NSString*)path;
 - (NSDateFormatter*)dateFormatter;
 @end
@@ -63,19 +63,19 @@
 - (void)takeScreenshot
 {
     CGImageRef screenshot = CGDisplayCreateImage(CGMainDisplayID());
-    CGImageWriteToFile(screenshot, [self generateScreenshotTargetFilename]);
+    CGImageWriteToFile(screenshot, kUTTypePNG, [self generateScreenshotTargetFileBasename]);
     CGImageRelease(screenshot);
 }
 
 #pragma mark - Filesystem Operations
 
-- (NSString*)generateScreenshotTargetFilename
+- (NSString*)generateScreenshotTargetFileBasename
 {
     NSDate *now = [NSDate date];
     NSString *savePath = [[NSUserDefaults standardUserDefaults] stringForKey:@"save_path"];
 
     [self ensureExistingPath:savePath];
-    return [NSString stringWithFormat:@"%@/%@.jpg", savePath, [self.dateFormatter stringFromDate:now]];
+    return [NSString stringWithFormat:@"%@/%@", savePath, [self.dateFormatter stringFromDate:now]];
 }
 
 - (void)ensureExistingPath:(NSString*)path
@@ -106,13 +106,16 @@ dispatch_source_t CreateDispatchTimer(uint64_t interval, uint64_t leeway, dispat
     return timer;
 }
 
-void CGImageWriteToFile(CGImageRef image, NSString *path) {
+void CGImageWriteToFile(CGImageRef image, CFStringRef type, NSString *path) {
 	CFMutableDictionaryRef mSaveMetaAndOpts = CFDictionaryCreateMutable(nil, 0, &kCFTypeDictionaryKeyCallBacks, &kCFTypeDictionaryValueCallBacks);
 	CFDictionarySetValue(mSaveMetaAndOpts, kCGImageDestinationLossyCompressionQuality,
 						 CFBridgingRetain([NSNumber numberWithFloat:0.0]));	// set the compression quality here
+    
+    NSString *filenameExtension = (__bridge NSString *)(UTTypeCopyPreferredTagWithClass(type, kUTTagClassFilenameExtension));
+    NSString *fullPath = [path stringByAppendingPathExtension:filenameExtension];
 
-    CFURLRef url = (__bridge CFURLRef)[NSURL fileURLWithPath:path];
-    CGImageDestinationRef destination = CGImageDestinationCreateWithURL(url, kUTTypeJPEG, 1, NULL);
+    CFURLRef url = (__bridge CFURLRef)[NSURL fileURLWithPath:fullPath];
+    CGImageDestinationRef destination = CGImageDestinationCreateWithURL(url, kUTTypePNG, 1, NULL);
     CGImageDestinationAddImage(destination, image, mSaveMetaAndOpts);
 
     if (!CGImageDestinationFinalize(destination)) {
