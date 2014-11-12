@@ -19,6 +19,13 @@
     self = [super initWithNibName:@"GeneralPreferencesView" bundle:nibBundleOrNil];
     [self loadView];
     
+    [self initImageTypes];
+    
+    return self;
+}
+
+- (void)initImageTypes
+{
     NSArray *imageTypeKeys = [NSImage imageTypes];
     imageTypeKeys = [imageTypeKeys filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
         return UTTypeConformsTo((__bridge CFStringRef)(evaluatedObject), kUTTypeImage);
@@ -31,8 +38,6 @@
     }
     
     self.imageTypes = imageTypes;
-    
-    return self;
 }
 
 - (void)willBeDisplayed
